@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Trois blocs</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    background-color: #0a192f;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    color: white;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a192f 0%, #1a2a4a 50%, #0a192f 100%);
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Image3.PNG');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.light-effect {
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 183, 77, 0.3) 0%, rgba(255, 183, 77, 0) 70%);
+    border-radius: 50%;
+    z-index: 2;
+    filter: blur(40px);
+}
+
+.light-effect-2 {
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 183, 77, 0.2) 0%, rgba(255, 183, 77, 0) 70%);
+    border-radius: 50%;
+    z-index: 2;
+    filter: blur(30px);
+}
+ 
+/* Effet de fond subtil */
+.background-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 183, 77, 0.05) 0%, transparent 70%);
+    top: -200px;
+    left: -200px;
+    z-index: 0;
+}
+
+.title-container {
+    position: absolute;
+    top: 60px;
+    left: 80px;
+    z-index: 2;
+}
+
+.title-main {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.title-accent {
+    color: #ffb74d;
+    position: relative;
+    display: inline-block;
+}
+
+.title-accent::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ffb74d, transparent);
+}
+
+.title-sub {
+    font-size: 36px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 2px;
+}
+
+/* Triangle moderne */
+.triangle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 520px;
+    z-index: 1;
+}
+
+.triangle-main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: linear-gradient(135deg, rgba(40, 80, 140, 0.15), rgba(20, 40, 80, 0.3));
+    border: 1px solid rgb(255, 184, 77);
+    box-shadow: 
+        inset 0 0 60px rgb(243, 155, 22),
+        0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.triangle-border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: transparent;
+    border: 1px solid rgb(255, 184, 77);
+    filter: blur(0.5px);
+}
+
+.triangle-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 30%, rgba(255, 184, 77, 0.256) 0%, transparent 60%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Points aux sommets */
+.vertex {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #ffb84d;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px rgb(255, 153, 0);
+    z-index: 3;
+}
+
+.vertex-top {
+    top: 0;
+    left: 50%;
+}
+
+.vertex-left {
+    top: 100%;
+    left: 0;
+}
+
+.vertex-right {
+    top: 100%;
+    left: 100%;
+}
+
+.center-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background-color: rgba(10, 25, 47, 0.85);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 183, 77, 0.6);
+}
+
+/* Icône centrale */
+.center-icon i {
+    font-size: 48px;
+    color: #ffb74d;
+}
+
+.vertex-center::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #ffb84d00, #ff990000);
+    border-radius: 50%;
+    opacity: 0.8;
+    filter: blur(5px);
+}
+
+/* Texte sur les côtés */
+.side-text {
+    position: absolute;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    max-width: 150px;
+    line-height: 1.4;
+    z-index: 2;
+}
+
+.side-text::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: rgba(255, 183, 77, 0.7);
+}
+
+.side-text.left {
+    top: 65%;
+    left: 50px;
+    transform: translateY(-150%);
+}
+
+.side-text.left::before {
+    right: -35px;
+    top: 50%;
+    transform: translateY(-150%);
+}
+
+.side-text.right {
+    top: 65%;
+    right: 50px;
+    transform: translateY(-150%);
+}
+
+.side-text.right::before {
+    left: -35px;
+    top: 50%;
+    transform: translateY(-150%);
+}
+
+.side-text.bottom {
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 200px;
+}
+
+.side-text.bottom::before {
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.side-text .highlight {
+    color: #ffb84d;
+    font-weight: 700;
+    display: block;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+/* Éléments décoratifs */
+.decorative-line {
+    position: absolute;
+    background: rgba(255, 183, 77, 0.1);
+    z-index: 0;
+}
+
+.line-1 {
+    width: 200px;
+    height: 1px;
+    top: 200px;
+    right: 100px;
+    transform: rotate(45deg);
+}
+
+.line-2 {
+    width: 150px;
+    height: 1px;
+    bottom: 150px;
+    left: 100px;
+    transform: rotate(-30deg);
+}
+</style>
+</head>
+
+<body>
+<div class="slide">
+    <div class="background"></div>
+    <div class="light-effect"></div>
+    <div class="light-effect-2"></div>
+    <div class="background-glow"></div>
+    
+    <div class="title-container">
+        <div class="title-main">
+            <span class="title-accent">Trois</span> blocs
+        </div>
+        <div class="title-sub"></div>
+    </div>
+    
+    <div class="triangle-container">
+        <div class="triangle-main"></div>
+        <div class="triangle-border"></div>
+        <div class="triangle-glow"></div>
+        
+        <div class="vertex vertex-top"></div>
+        <div class="vertex vertex-left"></div>
+        <div class="vertex vertex-right"></div>
+        
+        <div class="vertex-center"></div>
+        <div class="center-icon"><i class="material-icons">palette</i></div>
+        
+        <div class="side-text left">
+            <span class="highlight">Un enjeu</span>
+            central
+        </div>
+        
+        <div class="side-text right">
+            <span class="highlight">Un levier</span>
+            transversal
+        </div>
+        
+        <div class="side-text bottom">
+            <span class="highlight">De l'écrit</span>
+            à l'oral
+        </div>
+    </div>
+    
+    <div class="decorative-line line-1"></div>
+    <div class="decorative-line line-2"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avantages concrets pour la carrière</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a192f;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px; height: 720px; position: relative; overflow: hidden;
+            background: linear-gradient(135deg, #0a192f 0%, #1a2a4a 50%, #0a192f 100%);
+            color: #ffffff; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            display: flex; flex-direction: column;
+        }
+        .background {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('11.png'); /* Image de fond */
+            background-size: cover; background-position: center; opacity: 0.15;
+            z-index: 1;
+        }
+        .light-effect, .light-effect-2 {
+            position: absolute; border-radius: 50%; z-index: 2; filter: blur(40px);
+        }
+        .light-effect {
+            top: -150px; right: -150px; width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255, 183, 77, 0.3) 0%, rgba(255, 183, 77, 0) 70%);
+        }
+        .light-effect-2 {
+            bottom: -100px; left: -100px; width: 400px; height: 400px; filter: blur(30px);
+            background: radial-gradient(circle, rgba(255, 183, 77, 0.2) 0%, rgba(255, 183, 77, 0) 70%);
+        }
+        .title-container {
+            position: relative; z-index: 3; padding: 70px 70px 0 70px; flex-shrink: 0;
+        }
+        .title {
+            font-size: 50px; font-weight: 700; color: #ffffff; line-height: 1.2;
+            position: relative;
+        }
+        .title::after {
+            content: ""; position: absolute; bottom: -15px; left: 0;
+            width: 100px; height: 4px;
+            background: linear-gradient(90deg, rgba(255, 183, 77, 0.3), #ffb74d, rgba(255, 183, 77, 0.3));
+            border-radius: 2px;
+        }
+        .highlight { color: #ffb74d; font-weight: 700; }
+        .bottom-image-container {
+            position: relative; z-index: 3; flex-grow: 1;
+            display: flex; justify-content: center; align-items: flex-end;
+            padding: 0 70px 70px 70px;
+        }
+        .image-frame {
+            width: 750px; height: 400px; /* Taille ajustée pour un rectangle */
+            border: 3px solid rgba(255, 183, 77, 0.3); border-radius: 10px;
+            overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            background-color: rgba(10, 25, 47, 0.3);
+            display: flex; justify-content: center; align-items: center;
+        }
+        .image-frame img {
+            width: 100%; height: 100%; object-fit: cover; /* L'image remplit le cadre */
+        }
+        .footer {
+            position: absolute; bottom: 20px; right: 70px;
+            font-size: 14px; color: #a8b2d1; font-style: italic; z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="background"></div>
+        <div class="light-effect"></div>
+        <div class="light-effect-2"></div>
+        
+        <div class="title-container">
+            <h1 class="title">Clarification du message central : dégager l’idée directrice du texte écrit</h1>
+        </div>
+        
+        <div class="bottom-image-container">
+            <div class="image-frame">
+                <!-- CHEMIN CORRIGÉ : L'image 77.jpg doit être dans le même dossier -->
+                <img src="51.png" alt="Illustration des avantages carrière">
+            </div>
+        </div>
+        
+        <div class="footer">abdellah.elamraoui@fsjes-agdal.um5.ac.ma</div>
+    </div>
+</body>
+</html>
